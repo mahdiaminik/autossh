@@ -29,7 +29,7 @@ http {
                       '$status $body_bytes_sent "$http_referer" '
                       '"$http_user_agent" "$http_x_forwarded_for"';
     access_log  /var/log/nginx/access.log  main;
-    sendfile        on;
+    sendfile        off;
     #tcp_nopush     on;
     keepalive_timeout  65;
     #gzip  on;
@@ -201,5 +201,5 @@ myssh  7  35 35 35  &
 myssh  8  40 40 10  &
 myssh  9  45 45 45  &
 
-nginx -g "daemon off;"
+sleep 50 && nginx -g "daemon off;"
 
